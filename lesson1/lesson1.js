@@ -18,13 +18,10 @@ const sponsors = {
 
 const {cash, eu, rus} = sponsors;
 
-function calcCash(own = 0) {    
-    const everyCash = [...arguments];
-    let total = own;
-    for (let i = 0; i < everyCash[1]; i++) {
-        total += +everyCash[1][i];
-    }
-    return total;
+function calcCash(own = 0) {      
+    return own.reduce( (s,num) => {
+        return s + num;
+    }, 0);
 }
 
 const money = calcCash(cash);
@@ -35,7 +32,7 @@ function makeBusiness(owner, cash, emp, director = 'Victor') {
     console.log('We have a business. Owner: ' + owner + ', director: ' + director + '. Our budget: ' + cash + '. And our employers: ' +
     emp);
     console.log('And we have a sponsors: ');
-    console.log(sumSponsors);
+    console.log(...sumSponsors);
     console.log('Note. Be careful with ' + eu[0] + ". It's a huge risk.");
 }
 makeBusiness('Sam', money, employersNames);
