@@ -17,9 +17,7 @@ export default class App extends Component {
                 {label: 'That is so good', important: false, id: 2},
                 {label: 'I need a break..', important: false, id: 3}        
             ] 
-        }
-
-        this.htmlId = idGenerator();
+        }        
     }
     deleteItem = (id) => {
         this.setState( ({data}) => {
@@ -40,7 +38,7 @@ export default class App extends Component {
         const newItem = {
             label: body,
             important: false,
-            id: this.htmlId
+            id: idGenerator()
         }
         this.setState( ({data}) => {
             const newArr = [...data, newItem];
